@@ -56,7 +56,7 @@ After training, models are scripted and arranged so that similarities could be c
 | Unet32  |  Dublin/Vaihingen/Enschede | -- | 31,4 M | [link](-)  |
 | Unet32 MLP |  Dublin/Vaihingen/Enschede | 88.6 | 1,4 M | [link](-)  |
 | Unet Attention  |  Dublin/Vaihingen/Enschede | -- | 38,1 M | [link](-)  |
-| Unet Attention MLP |  Dublin Vaihingen Enschede | 88.9 | 1,4 M | [link](-)  |
+| Unet Attention MLP |  Dublin/Vaihingen/Enschede | 88.9 | 1,4 M | [link](-)  |
 
 Inference requires an SGM implementation for cost volume regularization. Our similarty models are scripted and fed to our C++ implementation under the [![MicMac](<img src="https://user-images.githubusercontent.com/28929267/230158064-57c90a2a-e906-4d72-b238-1d168f0cca58.png" width="50" height="10">)](https://github.com/micmacIGN/micmac) photogrammetry software. The main C++ production code is located at *MMVII/src/LearningMatching*.
 Our approach is embedded into the MicMac multi-resolution image matching pipeline and can be parametrized using a MicMac compliant xml file. The figure below illustrates 

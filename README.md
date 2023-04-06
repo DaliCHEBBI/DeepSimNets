@@ -1,7 +1,8 @@
 # DeepSimNets
-Deep Similarity learning for Stereo Image Matching 
 
 Official repository for **_DeepSim-Nets: Deep Similarity Networks for Stereo Image Matching_** [paper :page_facing_up:](adress) accepted for EarthVision2023.
+
+The paper relative code will uploaded soon ! 
 
 <p align="center">
   <img width="900" height="200" src="https://user-images.githubusercontent.com/28929267/230094222-a7dc3348-3474-47cc-9074-cbbb68605f4e.png">
@@ -38,7 +39,7 @@ DeepSim-Nets are trained on Aerial data from Dublin dataset on 4 GPUs. The follo
 
 # Evaluation 
 
-To evaluate our classifiers performance, we estimate joint distributions of matching and non-similarity random variables on test data. 
+To evaluate our classifiers performance, we estimate joint distributions of matching and non-similarity random variables on test data. Details will be given soon.
 
 # Inference
 
@@ -58,13 +59,13 @@ After training, models are scripted and arranged so that similarities could be c
 | Unet Attention MLP |  Dublin Vaihingen Enschede | 88.9 | 1,4 M | [link](https://drive.google.com/file/d/1TOtO42nIL5EcmB5Oy2F8O0Y9Iksj4_rS/view?usp=sharing)  |
 
 Inference requires an SGM implementation for cost volume regularization. Our similarty models are scripted and fed to our C++ implementation under the [![MicMac](<img src="https://user-images.githubusercontent.com/28929267/230158064-57c90a2a-e906-4d72-b238-1d168f0cca58.png" width="50" height="10">)](https://github.com/micmacIGN/micmac) photogrammetry software. The main C++ production code is located at *MMVII/src/LearningMatching*.
-Our approach is embedded into the MicMac multi-resolution image matching pipeline and can be parametrized using a MicMac compliant xml file. As described in the figure below,
-
+Our approach is embedded into the MicMac multi-resolution image matching pipeline and can be parametrized using a MicMac compliant xml file. The figure below illustrates 
 ![image](https://user-images.githubusercontent.com/28929267/230213458-4b43d162-2259-4808-8e4a-d66657473ad7.png)
 
 
-To run inference on a pair of epipolar images, a MicMac  compliant xml file is provided. It points to a Models folder location for loading. 
+For real world stereo matching on larger images, a jupyter notebook will be provided ! 
 
 
 # Docker Image 
 
+Alternatively, a docker image will be prepared with a precompiled version within the MicMac Open Source photogrammetry software. 

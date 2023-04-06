@@ -2,7 +2,7 @@
 
 Official repository for **_DeepSim-Nets: Deep Similarity Networks for Stereo Image Matching_** [paper :page_facing_up:](adress) accepted for EarthVision2023.
 
-The paper relative code will uploaded soon ! 
+The paper relative code will be uploaded soon ! 
 
 <p align="center">
   <img width="900" height="200" src="https://user-images.githubusercontent.com/28929267/230094222-a7dc3348-3474-47cc-9074-cbbb68605f4e.png">

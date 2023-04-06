@@ -13,9 +13,13 @@ Overall training pipeline
 
 
 <p align="center">
-  <img width="900" height="400" src="https://user-images.githubusercontent.com/28929267/230093358-41c5f835-079d-4ead-9727-f3e8f927ebb3.png">
+  <img width="900" height="400" src="https://user-images.githubusercontent.com/28929267/230093358-41c5f835-079d-4ead-9727-f3e8f927ebb3.png">  
  </p>
-                                    
+  <em> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp  Epipolar &nbsp &nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Our MS-AFF &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  PSMNet &nbsp &nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp   Normalized Cross Correlation</em>&nbsp &nbsp 
+         
+   
+  
+  
 *We propose to learn dense similarities by training three multi-scale learning architectures on wider images tiles. To enable robust self-supervised contrastive learning, a sample mining is developed. Our main idea lies in relying on wider suppport regions to leverage pixel-level similarity-aware embeddings. Then, the whole set of pixel embeddings of a reference image are matched to their corresponding ones at once. Our approach alleviates the block matching distinctiveness shotcomings by exploiting the image wider context. We therefore leverage quite distinctive similarity measures that outcome standard hand-crafted correlation (NCC) and deep learning patch based approaches (MC-CNN). Compared to end-to-end methods, our DeepSim-Nets are highly versatile and readily suited for standard mutli resolution and large scale stereo matching pipelines.* 
 
 # Multi-Scale Attentional Feature Fusion (MS-AFF) 

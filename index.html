@@ -118,10 +118,10 @@
 
 <html>
 <head>
-	<title>Sat-NeRF</title>
+	<title>DeepSim-Nets</title>
 	<meta property="og:image" content="./teaser.png"/> <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
-	<meta property="og:title" content="Sat-NeRF" />
-	<meta property="og:description" content="CVPR EarthVision 2022 Sat-NeRF" />
+	<meta property="og:title" content="DeepSim-Nets" />
+	<meta property="og:description" content="CVPR EarthVision 2023 DeepSim-Nets" />
 
 	<!-- Get from Google Analytics -->
 	<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -140,24 +140,29 @@
 	<center>
 		<span style="font-size:36px">Sat-NeRF</span>
         <br>
-        <span style="font-size:24px">&nbsp;Learning Multi-View Satellite Photogrammetry<br>With Transient Objects and Shadow Modeling Using RPC Cameras</span>
+        <span style="font-size:24px">&nbsp;Deep Similarity Networks for Stereo Image Matching</span>
         <br><br>
 		<table align=center width=600px>
 			<table align=center width=600px>
 				<tr>
 					<td align=center width=100px>
 						<center>
-							<span style="font-size:24px"><a href="https://scholar.google.com/citations?user=TgpSmIsAAAAJ&hl=en">Roger Mar&iacute;</a></span>
+							<span style="font-size:24px"><a href="https://github.com/DaliCHEBBI">Mohamed Ali Chebbi&iacute;</a></span>
 						</center>
 					</td>
 					<td align=center width=100px>
 						<center>
-							<span style="font-size:24px"><a href="http://gfacciol.github.io">Gabriele Facciolo</a></span>
+							<span style="font-size:24px"><a href="https://erupnik.github.io">Ewelina Rupnik</a></span>
 						</center>
 					</td>
 					<td align=center width=100px>
 						<center>
-							<span style="font-size:24px"><a href="https://tehret.github.io/">Thibaud Ehret</a></span>
+							<span style="font-size:24px"><a href="marc.pierrot-deseilligny@ensg.eu">Marc Pierrot-Deseilligny</a></span>
+						</center>
+					</td>
+					<td align=center width=100px>
+						<center>
+							<span style="font-size:24px"><a href="paul.lopes@thalesgroup.com">Paul Lopes</a></span>
 						</center>
 					</td>
 				</tr>
@@ -176,7 +181,7 @@
 					</td>
                     <td align=center width=120px>
 						<center>
-							<span style="font-size:24px"><a href='https://github.com/centreborelli/satnerf/releases/tag/EarthVision2022'>[Data]</a></span><br>
+							<span style="font-size:24px"><a href='https://github.com/DaliCHEBBI/DeepSimNets'>[Data]</a></span><br>
 						</center>
 					</td>
                     <td align=center width=120px>
@@ -205,7 +210,7 @@
 		<center>
 			<tr>
 				<td align=center>
-                    Project developed at the <a href='https://centreborelli.ens-paris-saclay.fr/fr'>ENS Paris-Saclay, Centre Borelli</a> and accepted at the <a href='https://www.grss-ieee.org/events/earthvision-2022/'>CVPR EarthVision Workshop 2022</a>.<br>
+                    Project developed at the <a href='https://www.umr-lastig.fr/'> LastIG lab at IGN in collaboration with Thales </a> and accepted at the <a href='https://www.grss-ieee.org/events/earthvision-2023/'>CVPR EarthVision Workshop 2023</a>.<br>
 				</td>
 			</tr>
 		</center>
@@ -217,7 +222,7 @@
 		<center><h1>Abstract</h1></center>
 		<tr>
 			<td align=justify>
-                We introduce the Satellite Neural Radiance Field (Sat-NeRF), a new end-to-end model for learning multi-view satellite photogrammetry in the wild. Sat-NeRF combines some of the latest trends in neural rendering with native satellite camera models, represented by rational polynomial coefficient (RPC) functions. The proposed method renders new views and infers surface models of similar quality to those obtained with traditional state-of-the-art stereo pipelines. Multi-date images exhibit significant changes in appearance, mainly due to varying shadows and transient objects (cars, vegetation). Robustness to these challenges is achieved by a shadow-aware irradiance model and uncertainty weighting to deal with transient phenomena that cannot be explained by the position of the sun. We evaluate Sat-NeRF using WorldView-3 images from different locations and stress the advantages of applying a bundle adjustment to the satellite camera models prior to training. This boosts the network performance and can optionally be used to extract additional cues for depth supervision.
+                We present three multi-scale similarity learning architectures, or DeepSim networks. These models learn pixel-level matching with a contrastive loss and are agnostic to the geometry of the considered scene. We establish a middle ground between hybrid and end-to-end approaches by learning to densely allocate all corresponding pixels of an epipolar pair at once. Our features are learnt on large im- age tiles to be expressive and capture the scene’s wider context. We also demonstrate that curated sample mining can enhance the overall robustness of the predicted similarities and improve the performance on radiometrically homogeneous areas. We run experiments on aerial and satellite datasets. Our DeepSim-Nets outperform the baseline hybrid approaches and generalize better to unseen scene geometries than end-to-end methods. Our flexible architecture can be readily adopted in standard multi-resolution image matching pipelines.
 			</td>
 		</tr>
 	</table>
@@ -248,7 +253,7 @@
 		<br>
 		<tr>
             <center>
-                <span style="font-size:28px">&nbsp;<a href='https://github.com/centreborelli/satnerf'>[GitHub]</a></span>
+                <span style="font-size:28px">&nbsp;<a href='https://github.com/DaliCHEBBI/DeepSimNets'>[GitHub]</a></span>
             </center>
         </tr>
 	</table>

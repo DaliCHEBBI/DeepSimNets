@@ -42,7 +42,9 @@ DeepSim-Nets are trained on Aerial data from Dublin dataset on 4 GPUs. The follo
 - CUDA 10.2, 11.2 and 11.4
 - NVIDIA V100 32G/ NVIDIA A100 40G
 - 64G RAM
-
+ 
+- Dataset structure:
+-
 # Evaluation 
 
 To evaluate our classifiers performance, we estimate joint distributions of matching and non-similarity random variables on test data. Details will be given soon.

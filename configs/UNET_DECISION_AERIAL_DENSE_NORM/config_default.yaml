@@ -1,0 +1,61 @@
+version_name: UNET_DECISION_AERIAL_DENSE_NORM
+device: cuda
+n_workers: 6
+n_gpus: 1
+dim: 2
+logger:
+  log_files_every_n_iter: 1000
+  log_scalars_every_n_iter: 100
+  log_validation_every_n_epochs: 1
+augmentations:
+  forwhat: SAT
+  hflip : 1.0
+  vflip : 1.0
+  Rotate : 25.0
+  hscale : 0.8
+  scale : 0.8
+  trans : 1
+  hshear : 0.1
+  brightness : 0.0
+  contrast : 1.0
+  d_vtrans : 1.0
+  d_rotate : 2.0
+  d_hscale : 0.9
+  d_hshear : 0.1
+  d_brightness : 0.0
+  d_contrast : 1.0
+  height : 1024
+  width : 1024
+  disp_max : 150
+  n_te : 0
+  n_input_plane : 4
+  nViews : 1
+  true1 : 1
+  false1 : 2
+  false2 : 8
+  PyramLevels : 4
+  ScaleFactor : 2.0
+image:
+  image_res: &image_res 7 # (height, width)
+feature:
+  e: &feature_e 64 # encoding size
+dataset:
+  name: DUBLIN
+  path_train: '/tmp/DUBLIN_DENSE/docker_image_names'
+  path_val: '/tmp/DUBLIN_DENSE/docker_image_names'
+  path_gt: '/tmp/PairwiseSTEREO/Train-Track2-RGB-Val-GT/Track2-Truth'
+  use_single: 0 
+train:
+  epochs: 50
+  bs: 2
+  num_workers : 12
+  accumulate_grad_batches: {0: 8, 25: 6, 40: 3}
+  seed: 41127
+val:
+  bs: 2
+  num_workers : 6
+  seed: 41127
+test:
+  bs: 1
+  num_workers : 2
+  seed: 41127

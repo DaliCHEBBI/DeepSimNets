@@ -17,7 +17,7 @@ Overall training pipeline
 <p align="center">
   <img width="900" height="400" src="https://user-images.githubusercontent.com/28929267/230093358-41c5f835-079d-4ead-9727-f3e8f927ebb3.png">  
  </p>
-  <em> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp  &nbsp &nbsp &nbsp   Epipolar &nbsp &nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Our MS-AFF &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp PSMNet &nbsp &nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Normalized Cross Correlation</em>&nbsp &nbsp 
+  <em> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp  &nbsp &nbsp &nbsp   Epipolar &nbsp &nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Our MS-AFF &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp PSMNet &nbsp &nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Normalized Cross Correlation</em>&nbsp &nbsp 
          
    
   
@@ -43,8 +43,16 @@ DeepSim-Nets are trained on Aerial data from Dublin dataset on 4 GPUs. The follo
 - NVIDIA V100 32G/ NVIDIA A100 40G
 - 64G RAM
  
-- Dataset structure:
--
+# Dataset structure:
+To train DeepSim-Nets in general, datasets should include the following elementary batch compositin:
+- Left image tile 
+- Right image tile 
+- Ground truth densified diparity map
+- occlusion mask 
+- definition mask: Sometimes, disparity map contain NaN data where no information is provided, this should be considered to define the ROI of interest
+
+The following is an example of what should the aformentioned image tiles should look like:
+
 # Evaluation 
 
 To evaluate our classifiers performance, we estimate joint distributions of matching and non-similarity random variables on test data. Details will be given soon.

@@ -51,7 +51,7 @@ To train DeepSim-Nets in general, datasets should include the following elementa
 - occlusion mask 
 - definition mask: Sometimes, disparity map contain NaN data where no information is provided, this should be considered to define the ROI of interest
 
-The following is an example of what should the aformentioned image tiles should look like:
+The following is an example of what should the aformentioned image tiles look like:
 
 # Evaluation 
 

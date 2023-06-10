@@ -43,15 +43,19 @@ DeepSim-Nets are trained on Aerial data from Dublin dataset on 4 GPUs. The follo
 - NVIDIA V100 32G/ NVIDIA A100 40G
 - 64G RAM
  
-# Dataset structure:
+## Dataset structure:
 To train DeepSim-Nets in general, datasets should include the following elementary batch compositin:
 - Left image tile 
 - Right image tile 
 - Ground truth densified diparity map
-- occlusion mask 
-- definition mask: Sometimes, disparity map contain NaN data where no information is provided, this should be considered to define the ROI of interest
+- Occlusion mask 
+- Definition mask: Sometimes, disparity map contain NaN data where no information is provided, this should be considered to define the ROI of interest.
+
 
 The following is an example of what should the aformentioned image tiles look like:
+
+![image info](![image](https://github.com/DaliCHEBBI/DeepSimNets/assets/28929267/1818c695-ae5f-4eea-9e2f-20b14fa7cf7c)
+)
 
 # Evaluation 
 

@@ -27,38 +27,39 @@ def MemStatus(loc):
 
 
 def make_arg_parser():
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
+    parserG = argparse.ArgumentParser()
+    parserG.add_argument(
         "--config_file",
         "-cfg",
-        type=Path,
+        type=str,
         help="Path to the yaml config file",
         required=True,
     )
-    parser.add_argument(
+    parserG.add_argument(
         "--model",
         "-mdl",
-        type=Path,
+        type=str,
         help="Model name to train, possible names are: 'MS-AFF', 'U-Net32', 'U-Net_Attention'",
         required=True,
     )
-    parser.add_argument(
+    parserG.add_argument(
         "--checkpoint",
         "-ckpt",
-        type=Path,
+        type=str,
         help="Model checkpoint to load",
         required=True,
     )
-    return parser
+    return parserG
 
 def main(arg_strings: typing.Sequence[str]):
     arg_parser=make_arg_parser()
     args = arg_parser.parse_args(arg_strings)
     torch.backends.cudnn.benchmark=True
-    _Model2train=args.model
+    _Model2train=str(args.model)
     _cfg_file=args.config_file
     _Model_ckpt=args.checkpoint
-    if (_Model2train=="MS-AFF"):
+    print(_Model2train=="MS-AFF")
+    if (_Model2train=='MS-AFF'):
         # feature extractor = MS-AFF
         # decision network  = MLP 
         from models.MSNETPl import MSNETWithDecisionNetwork_Dense_LM_N_2

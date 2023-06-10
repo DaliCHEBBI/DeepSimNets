@@ -72,15 +72,7 @@ def write_images(path, images, n_row):
 def load_config_train(root_dir, experiment_name, config_path=None):
     if config_path is None:
         config_path = 'configs/{}/config_default.yaml'.format(experiment_name)
-
-    parser = argparse.ArgumentParser(description='Dense Matching')
-    parser.add_argument('--config_path', type=str, default=config_path, help='Path to config file.')
-    parser.add_argument('--job_id', type=int, default=1, help='Job id.')
-    parser.add_argument('--device', type=int, default=0, help='device')
-
-    args = parser.parse_args()
-    path = args.config_path
-    job_id = args.job_id
+    path = config_path
 
     config = load_config(root_dir, path)
     print("configuration file ",config)
@@ -97,10 +89,10 @@ def load_config_train(root_dir, experiment_name, config_path=None):
     if param.device == 'cuda' and not torch.cuda.is_available():
         raise Exception('No GPU found, please use "cpu" as device')
 
-    param['version_id'] = job_id
+    param['version_id'] = 0
     param['version'] = '{}_{}'.format(param['version_id'], param['version_name'])
     param['experiment_name'] = experiment_name
-    param["device_id"]=args.device
+    param["device_id"]=config['device']
 
     return param
 

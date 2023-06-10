@@ -1,5 +1,5 @@
 version_name: UNET_GATED_ATTENTION_DECISION_AERIAL_DENSE_NORM
-device: cuda
+device: cuda:0
 n_workers: 6
 n_gpus: 1
 dim: 2

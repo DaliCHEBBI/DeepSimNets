@@ -233,7 +233,7 @@ def ROCCurveAuc(Simplus,Simminus):
     print("SHAPE OF FPR UNETATT  ====>  ",fpr.shape)
     print("AUC UNETATT     =====>  ",AUC)
 
-def testing_step_dense(batch,modulems,device,NANS=-999.0):
+def testing_step_dense(batch,modulems,device,NANS=-999.0):  
     false1=2
     false2=40
     x0,x1,dispnoc0,Mask0,x_offset=batch
@@ -412,21 +412,21 @@ def make_arg_parser():
     parser.add_argument(
         "--model",
         "-mdl",
-        type=Path,
+        type=str,
         help="Model name to train, possible names are: 'MS-AFF', 'U-Net32', 'U-Net_Attention'",
         required=True,
     )
     parser.add_argument(
         "--checkpoint",
         "-ckpt",
-        type=Path,
+        type=str,
         help="Model checkpoint to load",
         required=True,
     )
     parser.add_argument(
         "--output_folder",
         "-o",
-        type=Path,
+        type=str,
         help="output folder to store results",
         required=True,
     )

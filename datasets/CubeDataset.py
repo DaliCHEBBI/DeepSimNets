@@ -529,16 +529,16 @@ class StereoTrAerialDatasetDenseN(Dataset):
         self.MasqTilN+=read_list_from_file(self.images+"/l_32_masq_train.txt")
         
         #ADDED ENSHEDE DATASET 
-        self.LeftTilN+=read_list_from_file('/home/ad/alichem/scratch/stereo_test/Data/ENSH_DENSE'+"/left_train_clean.txt")
+        """self.LeftTilN+=read_list_from_file('/home/ad/alichem/scratch/stereo_test/Data/ENSH_DENSE'+"/left_train_clean.txt")
         self.RightTilN+=read_list_from_file('/home/ad/alichem/scratch/stereo_test/Data/ENSH_DENSE'+"/right_train_clean.txt")
         self.DispTilN+=read_list_from_file('/home/ad/alichem/scratch/stereo_test/Data/ENSH_DENSE'+"/disp_train_clean.txt")
-        self.MasqTilN+=read_list_from_file('/home/ad/alichem/scratch/stereo_test/Data/ENSH_DENSE'+"/masq_train_clean.txt")
+        self.MasqTilN+=read_list_from_file('/home/ad/alichem/scratch/stereo_test/Data/ENSH_DENSE'+"/masq_train_clean.txt")"""
  
         #ADDED EUROSRD DATASET DATASET 
-        self.LeftTilN+=read_list_from_file('/home/ad/alichem/scratch/stereo_test/Data/EuroSDR_vaihingen'+"/eurosdr_vahingen_left_train.txt")[:500]
+        """self.LeftTilN+=read_list_from_file('/home/ad/alichem/scratch/stereo_test/Data/EuroSDR_vaihingen'+"/eurosdr_vahingen_left_train.txt")[:500]
         self.RightTilN+=read_list_from_file('/home/ad/alichem/scratch/stereo_test/Data/EuroSDR_vaihingen'+"/eurosdr_vahingen_right_train.txt")[:500]
         self.DispTilN+=read_list_from_file('/home/ad/alichem/scratch/stereo_test/Data/EuroSDR_vaihingen'+"/eurosdr_vahingen_disp_train.txt")[:500]
-        self.MasqTilN+=read_list_from_file('/home/ad/alichem/scratch/stereo_test/Data/EuroSDR_vaihingen'+"/eurosdr_vahingen_masq_train.txt")[:500]
+        self.MasqTilN+=read_list_from_file('/home/ad/alichem/scratch/stereo_test/Data/EuroSDR_vaihingen'+"/eurosdr_vahingen_masq_train.txt")[:500]"""
         
     def __len__(self):
         return len(self.LeftTilN)*2
@@ -1405,21 +1405,21 @@ class StereoValAerialDatasetDenseN(Dataset):
         self.DispTilN=read_list_from_file(self.images+"/all_disp_test.txt")
         self.MasqTilN=read_list_from_file(self.images+"/all_masq_test.txt")
         #ADDED ENSHEDE DATASET 
-        self.LeftTilN+=read_list_from_file('/home/ad/alichem/scratch/stereo_test/Data/ENSH_DENSE'+"/left_test_clean.txt")
+        """self.LeftTilN+=read_list_from_file('/home/ad/alichem/scratch/stereo_test/Data/ENSH_DENSE'+"/left_test_clean.txt")
         self.RightTilN+=read_list_from_file('/home/ad/alichem/scratch/stereo_test/Data/ENSH_DENSE'+"/right_test_clean.txt")
         self.DispTilN+=read_list_from_file('/home/ad/alichem/scratch/stereo_test/Data/ENSH_DENSE'+"/disp_test_clean.txt")
-        self.MasqTilN+=read_list_from_file('/home/ad/alichem/scratch/stereo_test/Data/ENSH_DENSE'+"/masq_test_clean.txt")
+        self.MasqTilN+=read_list_from_file('/home/ad/alichem/scratch/stereo_test/Data/ENSH_DENSE'+"/masq_test_clean.txt")"""
         
-        self.LeftTilN=self.LeftTilN[0:1000]+self.LeftTilN[-200:]
-        self.RightTilN=self.RightTilN[0:1000]+self.RightTilN[-200:]
-        self.DispTilN=self.DispTilN[0:1000]+self.DispTilN[-200:]
-        self.MasqTilN=self.MasqTilN[0:1000]+self.MasqTilN[-200:]
+        self.LeftTilN=self.LeftTilN[0:1000]
+        self.RightTilN=self.RightTilN[0:1000]
+        self.DispTilN=self.DispTilN[0:1000]
+        self.MasqTilN=self.MasqTilN[0:1000]
         
         #ADDED EUROSRD DATASET DATASET 
-        self.LeftTilN+=read_list_from_file('/home/ad/alichem/scratch/stereo_test/Data/EuroSDR_vaihingen'+"/eurosdr_vahingen_left_train.txt")[500:]
+        """self.LeftTilN+=read_list_from_file('/home/ad/alichem/scratch/stereo_test/Data/EuroSDR_vaihingen'+"/eurosdr_vahingen_left_train.txt")[500:]
         self.RightTilN+=read_list_from_file('/home/ad/alichem/scratch/stereo_test/Data/EuroSDR_vaihingen'+"/eurosdr_vahingen_right_train.txt")[500:]
         self.DispTilN+=read_list_from_file('/home/ad/alichem/scratch/stereo_test/Data/EuroSDR_vaihingen'+"/eurosdr_vahingen_disp_train.txt")[500:]
-        self.MasqTilN+=read_list_from_file('/home/ad/alichem/scratch/stereo_test/Data/EuroSDR_vaihingen'+"/eurosdr_vahingen_masq_train.txt")[500:]
+        self.MasqTilN+=read_list_from_file('/home/ad/alichem/scratch/stereo_test/Data/EuroSDR_vaihingen'+"/eurosdr_vahingen_masq_train.txt")[500:]"""
         
         """self.LeftTilN=[os.path.join(self.images,el) for el in self.LeftTilN]
         self.RightTilN=[os.path.join(self.images,el) for el in self.RightTilN]

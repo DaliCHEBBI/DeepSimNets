@@ -71,6 +71,20 @@ The project follows the structure described below:
 └─ Trainer.py              # Main script for traininig DeepSim-Nets 
 └─ Tester.py               # Main script for testing DeepSim-Nets classification accuracy (Joint probabilities, AUC, etc)
 ```
+To train DeepSim-Nets, this command can be run :
+```bash
+python3 Trainer.py -h
+usage: Trainer.py [-h] --config_file CONFIG_FILE --model MODEL --checkpoint CHECKPOINT
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --config_file CONFIG_FILE, -cfg CONFIG_FILE
+                        Path to the yaml config file
+  --model MODEL, -mdl MODEL
+                        Model name to train, possible names are: 'MS-AFF', 'U-Net32', 'U-Net_Attention'
+  --checkpoint CHECKPOINT, -ckpt CHECKPOINT
+                        Model checkpoint to load
+```
 
 # Evaluation 
 

@@ -88,7 +88,21 @@ optional arguments:
 
 # Evaluation 
 
-To evaluate our classifiers performance, we estimate joint distributions of matching and non-similarity random variables on test data. Details will be given soon.
+To evaluate our classifiers performance, we estimate joint distributions of matching and non-similarity random variables on test data. These metrics are obtained by running the testing python script.
+
+```bash
+python3 Tester.py -h
+usage: Tester.py [-h] --model MODEL --checkpoint CHECKPOINT --output_folder OUTPUT_FOLDER
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --model MODEL, -mdl MODEL
+                        Model name to train, possible names are: 'MS-AFF', 'U-Net32', 'U-Net_Attention'
+  --checkpoint CHECKPOINT, -ckpt CHECKPOINT
+                        Model checkpoint to load
+  --output_folder OUTPUT_FOLDER, -o OUTPUT_FOLDER
+                        output folder to store results
+```
 
 # Inference
 

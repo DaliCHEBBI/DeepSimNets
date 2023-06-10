@@ -1,6 +1,6 @@
 # DeepSimNets
 
-Official repository for **_DeepSim-Nets: Deep Similarity Networks for Stereo Image Matching_** [paper :page_facing_up:](https://openaccess.thecvf.com/content/CVPR2023W/EarthVision/papers/Chebbi_DeepSim-Nets_Deep_Similarity_Networks_for_Stereo_Image_Matching_CVPRW_2023_paper.pdf) accepted for EarthVision2023.
+Official repository for **_DeepSim-Nets: Deep Similarity Networks for Stereo Image Matching_** [paper :page_facing_up:](https://openaccess.thecvf.com/content/CVPR2023W/EarthVision/papers/Chebbi_DeepSim-Nets_Deep_Similarity_Networks_for_Stereo_Image_Matching_CVPRW_2023_paper.pdf) accepted for CVPR 2023 EarthVision Workshop.
 
 The paper code is divided into two parts:
 - Training and Testing of the classifiers performance: The code in this repo should do it !

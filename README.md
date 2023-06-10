@@ -2,7 +2,8 @@
 
 Official repository for **_DeepSim-Nets: Deep Similarity Networks for Stereo Image Matching_** [paper :page_facing_up:](https://openaccess.thecvf.com/content/CVPR2023W/EarthVision/papers/Chebbi_DeepSim-Nets_Deep_Similarity_Networks_for_Stereo_Image_Matching_CVPRW_2023_paper.pdf) accepted for CVPR 2023 EarthVision Workshop.
 
-*The paper code is divided into two parts:
+
+The paper code is divided into two parts:
 - Training and Testing of the classifiers performance: The code in this repo should do it !
 - Inference: The code is integrated under MicMac and is written in C++ (including Torch C++)
 
@@ -20,7 +21,7 @@ Overall training pipeline
   <em> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp  &nbsp &nbsp &nbsp   Epipolar &nbsp &nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Our MS-AFF &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp PSMNet &nbsp &nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Normalized Cross Correlation</em>&nbsp &nbsp 
          
    
-  
+
   
 *We propose to learn dense similarities by training three multi-scale learning architectures on wider images tiles. To enable robust self-supervised contrastive learning, a sample mining is developed. Our main idea lies in relying on wider suppport regions to leverage pixel-level similarity-aware embeddings. Then, the whole set of pixel embeddings of a reference image are matched to their corresponding ones at once. Our approach alleviates the block matching distinctiveness shotcomings by exploiting the image wider context. We therefore leverage quite distinctive similarity measures that outcome standard hand-crafted correlation (NCC) and deep learning patch based approaches (MC-CNN). Compared to end-to-end methods, our DeepSim-Nets are highly versatile and readily suited for standard mutli resolution and large scale stereo matching pipelines.* 
 

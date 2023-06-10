@@ -54,7 +54,7 @@ To train DeepSim-Nets in general, datasets should include the following elementa
 
 The following is an example of what should the aformentioned image tiles look like:
 
-![image info](![image](https://github.com/DaliCHEBBI/DeepSimNets/assets/28929267/1818c695-ae5f-4eea-9e2f-20b14fa7cf7c))
+![image info]()
 
 # Evaluation 
 

@@ -129,8 +129,37 @@ Our approach is embedded into the MicMac multi-resolution image matching pipelin
 
 To reproduce the obtained results, we provide an epipolar pair consisting of high resolution aerial images (GSD=6cm). To run our code, we recommand to run the following script:
 
+
+# Docker Image 
+
+Pull the deepsim-Nets docker image :
+
+
 ```bash
+ 
+ sudo docker pull dali1210/micmac_deepsimnets:latest
 
 ```
-# Docker Image 
+
+# Path to models Feature extractor + MLP
+
+We provide MICMAC *.xml* configuration files that should be edited according to models locations. More specifically, the tag *FileModeleParams* should contain the path to both the feature extractor and MLP scripted models *.pt*.
+
+```bash
+ 
+ <EtapeMEC>
+<DeZoom> 4 </DeZoom>
+    <CorrelAdHoc>
+        <SzBlocAH> 40000000 </SzBlocAH>
+        <TypeCAH>
+            <ScoreLearnedMMVII>
+                <FileModeleCost> MVCNNCorrel</FileModeleCost>
+                <FileModeleParams>./MODEL_AERIAL_MSNET_DECISION/.*.pt</FileModeleParams>
+                <FileModeleArch>UnetMLPMatcher</FileModeleArch>
+            </ScoreLearnedMMVII>
+        </TypeCAH>
+    </CorrelAdHoc>
+</EtapeMEC>
+
+```
 

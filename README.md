@@ -18,7 +18,7 @@ Overall training pipeline
 <p align="center">
   <img width="900" height="400" src="https://user-images.githubusercontent.com/28929267/230093358-41c5f835-079d-4ead-9727-f3e8f927ebb3.png">  
  </p>
-  <em> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp  &nbsp &nbsp &nbsp   Epipolar &nbsp &nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Our MS-AFF &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp PSMNet &nbsp &nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Normalized Cross Correlation</em>&nbsp &nbsp 
+  <em> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp  &nbsp &nbsp &nbsp   Epipolar &nbsp &nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Our MS-AFF &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp PSMNet &nbsp &nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Normalized Cross Correlation</em>&nbsp &nbsp 
          
    
 
@@ -122,14 +122,15 @@ After training, models are scripted and arranged so that similarities could be c
 | Unet Attention MLP |  Dublin/Vaihingen/Enschede | 88.9 | 1,4 M | [link](https://drive.google.com/file/d/1TOtO42nIL5EcmB5Oy2F8O0Y9Iksj4_rS/view?usp=drive_link)  |
 
 
-Inference requires an SGM implementation for cost volume regularization. Our similarty models are scripted and fed to our C++ implementation under the [![MicMac](<img src="https://user-images.githubusercontent.com/28929267/230158064-57c90a2a-e906-4d72-b238-1d168f0cca58.png" width="50" height="10">)](https://github.com/micmacIGN/micmac) photogrammetry software. The main C++ production code is located at *MMVII/src/LearningMatching*.
+Inference requires an SGM implementation for cost volume regularization. Our similarty models are scripted (*.pt files) and fed to our C++ implementation under the [![MicMac](<img src="https://user-images.githubusercontent.com/28929267/230158064-57c90a2a-e906-4d72-b238-1d168f0cca58.png" width="50" height="10">)](https://github.com/micmacIGN/micmac) photogrammetry software. The main C++ production code is located at *MMVII/src/LearningMatching*.
 Our approach is embedded into the MicMac multi-resolution image matching pipeline and can be parametrized using a MicMac compliant xml file. The figure below illustrates 
 ![image](https://user-images.githubusercontent.com/28929267/230213458-4b43d162-2259-4808-8e4a-d66657473ad7.png)
 
 
-For real world stereo matching on larger images, a jupyter notebook will be provided ! 
+To reproduce the obtained results, we provide an epipolar pair consisting of high resolution aerial images (GSD=6cm). To run our code, we recommand to run the following script:
 
+```bash
 
+```
 # Docker Image 
 
-Alternatively, a docker image will be prepared with a precompiled version within the MicMac Open Source photogrammetry software. 

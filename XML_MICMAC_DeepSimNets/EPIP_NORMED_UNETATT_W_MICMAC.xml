@@ -1,0 +1,212 @@
+<ParamMICMAC>
+
+<DicoLoc>
+       <Symb> ZReg=0.02  </Symb>
+       <Symb> DefCor=0.4  </Symb>
+       <Symb> CostTrans=1.0 </Symb>
+
+       <Symb> SzW=3 </Symb>
+       <Symb> PenteMax=3.0 </Symb>
+       <Symb> Interpol=eInterpolBiLin  </Symb>
+       <Symb> DoEpi=true </Symb>
+       <Symb> Ori=Epi    </Symb>
+
+       <Symb> Im=TEST   </Symb>
+
+       <Symb> Im1=Im1DUBL.tif </Symb>
+       <Symb> Im2=Im2DUBL.tif </Symb>
+
+       <Symb> Modele=XXX</Symb>
+       <Symb> WITH_MODELE=true </Symb>
+       <Symb> IncPix=100  </Symb>
+       <Symb> NbDirProg=7   </Symb>
+       <Symb> ExtImIn=tif   </Symb>
+       <Symb> Purge=true   </Symb>
+       <Symb> NbProc=3   </Symb>
+
+  <!-- Parametres calcule -->
+        
+        <Symb>  DirMEC=${Modele} </Symb>
+        <Symb>  DirPyram=Pyram/ </Symb>
+
+</DicoLoc>
+
+<Section_Terrain> 
+      <IntervParalaxe>
+            <Px1IncCalc> ${IncPix} </Px1IncCalc>
+      </IntervParalaxe>
+</Section_Terrain>
+
+<Section_PriseDeVue>
+
+   <GeomImages> eGeomImage_EpipolairePure </GeomImages> 
+
+   <Images>
+    	<Im1>   ${Im1} </Im1>
+    	<Im2>   ${Im2}    </Im2>
+   </Images>
+
+   <MasqImageIn>
+             <OneMasqueImage>
+                <PatternSel>  (.*)\.${ExtImIn}  </PatternSel>
+                <NomMasq>  $1_Masq.tif     </NomMasq>
+             </OneMasqueImage>
+             <AcceptNonExistingFile> true </AcceptNonExistingFile>
+   </MasqImageIn>
+
+</Section_PriseDeVue>
+
+
+<!--  *************************************************************
+       Parametres fixant le comportement
+     de l'algo de mise en correspondance
+-->
+<Section_MEC>
+	<ChantierFullImage1> true </ChantierFullImage1>
+
+	<EtapeMEC>
+    	    <DeZoom> -1 </DeZoom>
+    	    <ModeInterpolation> ${Interpol} </ModeInterpolation>
+		
+	    <!-- param correl -->
+	    <SzW> ${SzW} </SzW>
+
+            <AlgoRegul> eAlgo2PrgDyn </AlgoRegul>
+
+	    <Px1Pas>        1  </Px1Pas>
+            <Px1DilatAlti>  7  </Px1DilatAlti>
+	    <Px1DilatPlani> 3  </Px1DilatPlani>
+	    <Px1Regul> ${ZReg} </Px1Regul>
+
+            <GenImagesCorrel> true </GenImagesCorrel>
+	    
+            <SsResolOptim> 1 </SsResolOptim>
+            <CoxRoyUChar> false </CoxRoyUChar>
+
+
+	    <ModulationProgDyn>
+               <EtapeProgDyn>
+            	   <ModeAgreg> ePrgDAgrSomme </ModeAgreg>
+                   <NbDir> ${NbDirProg} </NbDir>
+               </EtapeProgDyn>
+               <Px1PenteMax> ${PenteMax} </Px1PenteMax>
+               <ArgMaskAuto>
+            	   <ValDefCorrel> ${DefCor} </ValDefCorrel>
+		   <CostTrans> ${CostTrans} </CostTrans>
+                   <ReInjectMask> false </ReInjectMask> 
+               </ArgMaskAuto>
+            </ModulationProgDyn>
+
+
+    </EtapeMEC>
+
+	<!--  <EtapeMEC> <DeZoom> 16 </DeZoom> </EtapeMEC>	 -->
+    <!-- <EtapeMEC> <DeZoom> 64 </DeZoom> </EtapeMEC> 
+    <EtapeMEC> <DeZoom> 32 </DeZoom> </EtapeMEC>      -->
+    <EtapeMEC> <DeZoom> 16 </DeZoom> </EtapeMEC>
+    <EtapeMEC> <DeZoom> 8  </DeZoom>
+    </EtapeMEC>
+	<EtapeMEC> <DeZoom> 4  </DeZoom> 
+
+            <CorrelAdHoc>
+                <SzBlocAH> 40000000 </SzBlocAH>
+                <TypeCAH>
+                    <ScoreLearnedMMVII >
+                        <FileModeleCost> MVCNNCorrel</FileModeleCost>
+                        <FileModeleParams>./MODEL_UNET_ATTENTION_DECISION/.*.pt</FileModeleParams>
+                        <FileModeleArch>UnetMLPMatcher</FileModeleArch>
+                    </ScoreLearnedMMVII>
+                </TypeCAH>
+            </CorrelAdHoc>
+       </EtapeMEC>	
+	<EtapeMEC> 
+        <DeZoom> 2  </DeZoom> 
+            <CorrelAdHoc>
+                <SzBlocAH> 40000000 </SzBlocAH>
+                <TypeCAH>
+                    <ScoreLearnedMMVII >
+                        <FileModeleCost> MVCNNCorrel</FileModeleCost>
+                        <FileModeleParams>./MODEL_UNET_ATTENTION_DECISION/.*.pt</FileModeleParams>
+                        <FileModeleArch>UnetMLPMatcher</FileModeleArch>
+                    </ScoreLearnedMMVII>
+                </TypeCAH>
+            </CorrelAdHoc>
+    </EtapeMEC>	
+    <EtapeMEC> 
+        <DeZoom> 1  </DeZoom> 
+            <CorrelAdHoc>
+                <SzBlocAH> 40000000 </SzBlocAH>
+                <TypeCAH>
+                    <ScoreLearnedMMVII >
+                        <FileModeleCost> MVCNNCorrel</FileModeleCost>
+                        <FileModeleParams>./MODEL_UNET_ATTENTION_DECISION/.*.pt</FileModeleParams>
+                        <FileModeleArch>UnetMLPMatcher</FileModeleArch>
+                    </ScoreLearnedMMVII>
+                </TypeCAH>
+            </CorrelAdHoc>
+        
+    </EtapeMEC>
+    
+   <!-- <EtapeMEC>
+        <DeZoom > 1 </DeZoom>
+        <Px1Pas>   0.5  </Px1Pas>
+    </EtapeMEC> -->
+
+    <EtapeMEC>
+            <DeZoom>  1  </DeZoom>
+            <Px1Pas>   1.0     </Px1Pas>
+            <AlgoRegul> eAlgoDequant </AlgoRegul>
+	</EtapeMEC> 
+        
+	<HighPrecPyrIm> false </HighPrecPyrIm>
+    
+	<TypePyramImage>
+               <Resol >    1          </Resol>
+               <DivIm>    1 </DivIm>
+               <TypeEl>  eFloat32Bits   </TypeEl>
+        </TypePyramImage>
+
+</Section_MEC>
+
+<!--  *************************************************************
+       Parametres fixant les resultats
+     devant etre produits par l'algo
+-->
+<Section_Results>
+    <GeomMNT> eGeomPxBiDim     </GeomMNT>
+    <ZoomMakeTA> 16 </ZoomMakeTA>
+    <GammaVisu> 2.0 </GammaVisu>
+    <ZoomVisuLiaison> -1 </ZoomVisuLiaison>
+    
+</Section_Results>
+
+<!--  *************************************************************
+       Parametres lies a la gestions
+     du "chantier" sur la machine
+-->
+<Section_WorkSpace>
+
+    <WorkDir> ThisDir </WorkDir> 
+    <TmpMEC> ${DirMEC}/ </TmpMEC>
+    <TmpResult> ${DirMEC}/ </TmpResult>
+    <TmpPyr> ${DirPyram} </TmpPyr>
+    <PurgeMECResultBefore>  ${Purge} </PurgeMECResultBefore>
+
+    <ByProcess>  ${NbProc} </ByProcess>
+
+    <AvalaibleMemory> 2048 </AvalaibleMemory>
+    <SzDalleMin> 640 </SzDalleMin>
+    <SzDalleMax> 612 </SzDalleMax>
+    <SzRecouvrtDalles> 20 </SzRecouvrtDalles>
+    <SzMinDecomposCalc> 40 </SzMinDecomposCalc>
+    <ComprMasque> eComprTiff_None </ComprMasque>
+
+
+</Section_WorkSpace>
+
+<Section_Vrac> 
+     <DebugMM> true</DebugMM>
+</Section_Vrac>
+
+</ParamMICMAC>
+

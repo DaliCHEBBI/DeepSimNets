@@ -54,7 +54,10 @@ To train DeepSim-Nets in general, datasets should include the following elementa
 
 The following is an example of what should the aformentioned image tiles look like:
 
-![image info]()
+<img src="https://github.com/DaliCHEBBI/DeepSimNets/assets/28929267/71c3daff-d774-4f21-9897-d222b2b0cce5" title="Left Epipolar" width="20%" height="20%">
+<img src="https://github.com/DaliCHEBBI/DeepSimNets/assets/28929267/d8e98a70-6f4a-48e9-9a10-a6f56cc1b53a" title="Right Epipolar" width="20%" height="20%">
+<img src="https://github.com/DaliCHEBBI/DeepSimNets/assets/28929267/9de5a8c9-9192-49d2-abc7-415bd578163b" title="Delaunay-densified disparity map" width="20%" height="20%">
+<img src="https://github.com/DaliCHEBBI/DeepSimNets/assets/28929267/80224f4b-e00e-414c-82d5-71642896a300" title="Occlusion mask" width="20%" height="20%">
 
 # Evaluation 
 

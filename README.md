@@ -59,6 +59,10 @@ The following is an example of what should the aformentioned image tiles look li
 <img src="https://github.com/DaliCHEBBI/DeepSimNets/assets/28929267/9de5a8c9-9192-49d2-abc7-415bd578163b" title="Delaunay-densified disparity map" width="20%" height="20%">
 <img src="https://github.com/DaliCHEBBI/DeepSimNets/assets/28929267/80224f4b-e00e-414c-82d5-71642896a300" title="Occlusion mask" width="20%" height="20%">
 
+'''bash
+
+'''
+
 # Evaluation 
 
 To evaluate our classifiers performance, we estimate joint distributions of matching and non-similarity random variables on test data. Details will be given soon.

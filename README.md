@@ -134,10 +134,9 @@ To reproduce the obtained results, we provide an epipolar pair consisting of hig
 
 Pull the deepsim-Nets docker image :
 
-
 ```bash
  
- sudo docker pull dali1210/micmac_deepsimnets:latest
+ docker pull dali1210/micmac_deepsimnets:latest
 
 ```
 
@@ -148,7 +147,7 @@ We provide MICMAC *.xml* configuration files that should be edited according to 
 ```bash
  
  <EtapeMEC>
-<DeZoom> 4 </DeZoom>
+    <DeZoom> 4 </DeZoom> <!-- DeepSim-Nets run @ zoom 4-->
     <CorrelAdHoc>
         <SzBlocAH> 40000000 </SzBlocAH>
         <TypeCAH>

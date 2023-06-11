@@ -115,11 +115,11 @@ After training, models are scripted and arranged so that similarities could be c
 | Model name | Dataset | Joint_Probability(JP)  | :floppy_disk: | :point_down: |
 |---|:---:|:---:|:---:|:---:|
 | MS-AFF feature |  Dublin/Vaihingen/Enschede | -- | 4 M | [link](https://drive.google.com/file/d/10WgIRK4rkQhi_PiJlUBHiENyD5lD_UVm/view?usp=drive_link)  |
-| MS-AFF MLP |  Dublin/Vaihingen/Enschede | 89.6 | 1,4 M | [link](https://drive.google.com/file/d/154NxMtMrtpZlgC_t7-3Fa8LkhViztLRD/view?usp=drive_link)  |
+| MS-AFF decision (MLP) |  Dublin/Vaihingen/Enschede | 89.6 | 1,4 M | [link](https://drive.google.com/file/d/154NxMtMrtpZlgC_t7-3Fa8LkhViztLRD/view?usp=drive_link)  |
 | Unet32  |  Dublin/Vaihingen/Enschede | -- | 31,4 M | [link](https://drive.google.com/file/d/17U3UsCd7X6cg-3azq9DCKehYHZsol11N/view?usp=drive_link)  |
-| Unet32 MLP |  Dublin/Vaihingen/Enschede | 88.6 | 1,4 M | [link](https://drive.google.com/file/d/1WyxycxuKFAhNjLNr4EoCOe4T9crFGP-j/view?usp=drive_link)  |
+| Unet32 decision (MLP) |  Dublin/Vaihingen/Enschede | 88.6 | 1,4 M | [link](https://drive.google.com/file/d/1WyxycxuKFAhNjLNr4EoCOe4T9crFGP-j/view?usp=drive_link)  |
 | Unet Attention  |  Dublin/Vaihingen/Enschede | -- | 38,1 M | [link](https://drive.google.com/file/d/1ybTHVLPW9UaigoQmPe2uysipH7Mgxb_D/view?usp=drive_link)  |
-| Unet Attention MLP |  Dublin/Vaihingen/Enschede | 88.9 | 1,4 M | [link](https://drive.google.com/file/d/1TOtO42nIL5EcmB5Oy2F8O0Y9Iksj4_rS/view?usp=drive_link)  |
+| Unet Attention decision (MLP) |  Dublin/Vaihingen/Enschede | 88.9 | 1,4 M | [link](https://drive.google.com/file/d/1TOtO42nIL5EcmB5Oy2F8O0Y9Iksj4_rS/view?usp=drive_link)  |
 
 
 Inference requires an SGM implementation for cost volume regularization. Our similarty models are scripted (*.pt files) and fed to our C++ implementation under the [![MicMac](<img src="https://user-images.githubusercontent.com/28929267/230158064-57c90a2a-e906-4d72-b238-1d168f0cca58.png" width="50" height="10">)](https://github.com/micmacIGN/micmac) photogrammetry software. The main C++ production code is located at *MMVII/src/LearningMatching*.
@@ -143,7 +143,7 @@ Pull the deepsim-Nets docker image :
 
 # Path to models Feature extractor + MLP
 
-We provide MICMAC *.xml* configuration files that should be edited according to models locations. More specifically, the tag *FileModeleParams* should contain the path to both the feature extractor and MLP scripted models *.pt*.
+We provide MICMAC *.xml* configuration files that should be edited according to models locations. More specifically, the tag *FileModeleParams* should contain the path to both the feature extractor and MLP scripted models (*.pt).
 
 ```bash
  
@@ -162,4 +162,16 @@ We provide MICMAC *.xml* configuration files that should be edited according to 
 </EtapeMEC>
 
 ```
+&nbsp;
 
+To run the docker image: 
+
+```bash
+# run docker image
+docker run --gpus all --network=host --privileged --shm-size 25G -v path_to_images_folder:/process -it dali1210/micmac_deepsimnets:latest
+# go to images folder 
+cd /process
+# run micmac with appropriate xml file (examples are in 
+mm3d MICMAC XML_CONFIGURATION_FILE.xml +Im1=Epip1.tif +Im2=Epip2.tif +DirMEC=TEST_DEEPSIM_NETS +ZReg=0.002 +IncPix=100
+
+```bash

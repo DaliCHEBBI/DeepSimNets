@@ -164,14 +164,21 @@ We provide MICMAC *.xml* configuration files that should be edited according to 
 ```
 &nbsp;
 
-To run the docker image: 
+# Steps to run dense matching with DeepSim-Nets
 
 ```bash
-# run docker image
+#1. Download scripted models 
+#2. Gather each model feature extractor and decision (MLP) under the same folder 
+#3. Update models path explained above <FileModeleParams> bla bla bla </FileModeleParams>
+#4. run docker image
 docker run --gpus all --network=host --privileged --shm-size 25G -v path_to_images_folder:/process -it dali1210/micmac_deepsimnets:latest
-# go to images folder 
+#5. go to images folder 
 cd /process
-# run micmac with appropriate xml file (examples are in 
+#6. run micmac with appropriate xml file (examples are in 
 mm3d MICMAC XML_CONFIGURATION_FILE.xml +Im1=Epip1.tif +Im2=Epip2.tif +DirMEC=TEST_DEEPSIM_NETS +ZReg=0.002 +IncPix=100
+#7. The ouput disparity maps follow the MicMac naming conventions
+```
 
-```bash
+# Contact information 
+
+please contact us @ mohamed.ali-chebbi@ign.fr or med.chebbi.mac@gmail.com

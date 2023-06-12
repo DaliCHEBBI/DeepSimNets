@@ -135,9 +135,7 @@ To reproduce the obtained results, we provide an epipolar pair consisting of hig
 Pull the deepsim-Nets docker image :
 
 ```bash
- 
  docker pull dali1210/micmac_deepsimnets:latest
-
 ```
 
 # Path to models Feature extractor + MLP
